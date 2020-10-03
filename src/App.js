@@ -56,24 +56,25 @@ class App extends React.Component {
               </Navbar.Collapse>
             </Nav>
         </Navbar>
-        <div id="main" className="m-5" >
-          <div className="d-flex justify-content-between">
-            <h2>Stays in Finland</h2>
-            <p><small>{this.state.numberOfStays} stays</small></p>
-          </div>
-            <div className="d-flex flex-wrap align-content-center" style={{width:"80%" ,screenLeft:"20%"}} >
-              <div className="d-flex flex-wrap  align-content-stretch " style={{screenLeft:"20%"}}>
-                {this.state.stays.map((stay,index) => (
-                  <StayCard stay={stay} index={index} />
-                ))}
-              </div>
-          </div>  
-          </div>
-          <Navbar>
-          <Navbar.Text>
-            By Alexis Lagodka
-          </Navbar.Text>
-          </Navbar>
+        <div id="main" className="m-5 d-flex flex-column" >
+            <div className="w-100 p-3 d-flex justify-content-between">
+              <h2>Stays in Finland</h2>
+              <p><small>{this.state.numberOfStays} stays</small></p>
+            </div>
+              <div className="d-flex flex-wrap align-content-center" style={{width:"80%" ,screenLeft:"20%"}} >
+                <div className="d-flex flex-wrap  align-content-stretch " style={{screenLeft:"20%"}}>
+                  {this.state.stays.map((stay,index) => (
+                    <StayCard stay={stay} index={index} />
+                  ))}
+                </div>
+            </div>  
+            </div>
+            <Navbar>
+            <Navbar.Text>
+              By Alexis Lagodka
+            </Navbar.Text>
+            </Navbar>
+
       </div>
     );
   }
