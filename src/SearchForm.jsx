@@ -19,7 +19,7 @@ class SearchForm extends Component {
     const stays = require("./stays.json");
       var locations = [];
       // Make the list of city we can select
-      stays.map((stay) => {
+      stays.forEach(stay => {
          locations.push({
             "city": stay.city,
             "country": stay.country
@@ -46,7 +46,7 @@ class SearchForm extends Component {
     const target = event.target;
     const value =  target.value;
     const name = target.name;
-    console.log(value);
+    
     this.setState({
       [name]: value
     }); 

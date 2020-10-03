@@ -17,22 +17,17 @@ class App extends React.Component {
 
  componentWillMount(){
   const nbOfStays = this.state.stays.length;
-  console.log(nbOfStays);
   this.setState({numberOfStays: nbOfStays});
  }
 
  handleSubmit = (city, guestCounter) => {
-  console.log("search");
-  //const {city, guestCounter} = this.state;
-  console.log(city);
   var stays = require("./stays.json");
   var results = [];
-  stays.map( stay => {
+  stays.forEach( stay => {
     if (city === stay.city && guestCounter <= stay.maxGuests) {
       results.push(stay);
     }
   });
-  console.log(results);
   
   this.setState({
     stays : results,
@@ -64,12 +59,14 @@ class App extends React.Component {
         <div id="main" className="m-5" >
           <div className="d-flex justify-content-between">
             <h2>Stays in Finland</h2>
-          <p><small>{this.state.numberOfStays} stays</small></p>
+            <p><small>{this.state.numberOfStays} stays</small></p>
           </div>
-          <div className="d-flex flex-wrap  align-content-stretch justify-content-center ">
-            {this.state.stays.map((stay,index) => (
-              <StayCard stay={stay} index={index} />
-            ))}
+            <div className="d-flex flex-wrap align-content-center" style={{width:"80%" ,screenLeft:"20%"}} >
+              <div className="d-flex flex-wrap  align-content-stretch " style={{screenLeft:"20%"}}>
+                {this.state.stays.map((stay,index) => (
+                  <StayCard stay={stay} index={index} />
+                ))}
+              </div>
           </div>  
           </div>
           <Navbar>
