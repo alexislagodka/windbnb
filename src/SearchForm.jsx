@@ -61,19 +61,19 @@ class SearchForm extends Component {
     
     switch (name) {
       case 'addAdults':
-        console.log("addAdults");
+        
         numberOfAdults++;
         break
       case 'removeAdults':
-        console.log("removeAdults");
+       
         if(numberOfAdults > 0)  numberOfAdults--;
         break
       case 'addChildrens':
-        console.log("addChildren");
+       
         numberOfChildrens++
         break;
       case 'removeChildrens':
-        console.log("removeChildren");
+        
         if(numberOfChildrens > 0) numberOfChildrens--;
         break
       default: 
