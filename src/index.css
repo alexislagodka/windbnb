@@ -9,7 +9,7 @@
     p-0
     w-full
     h-full
-  
+    bg-white
   }
   body, #root {
     margin: 0;
