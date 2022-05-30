@@ -1,13 +1,79 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@100;300&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body, #root {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    @apply
+    w-full
+    text-sm
+    md:text-base
+  }
+  #root{
+    @apply
+    h-full
+    min-h-screen
+    grid
+    grid-rows-[auto_1fr_auto]
+  }
+  main {
+    @apply
+    h-full
+    min-h-fit
+  }
+
+  h1{
+    @apply
+    text-xl
+    md:text-6xl
+    font-bold
+  }
+
+  h2{
+    @apply
+    text-lg
+    md:text-2xl
+    font-bold
+  }
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+
+  .navbar{
+    @apply
+    w-full
+    h-40
+  }
+
+  .photoContainer {
+    /* height: 269px; */
+    overflow: hidden;
+    border-radius: 24px;
+    @apply 
+    h-60
+    md:h-64
+  }
+  
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo {
+    transition: transform 0.5s ease;
+  }
+
+  .photo:hover {
+    transform: scale(1.2);
+  }
+
+}
+
+@layer utilities {
+
 }
