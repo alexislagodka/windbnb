@@ -27,7 +27,7 @@ export default function NavBar() {
   }, [openSearch])
 
   return (
-    <div className="static flex justify-center">
+    <div className="md:sticky md:top-0 bg-white flex justify-center shadow-sm">
       <div className="w-4/5">
         <div className="h-40 md:h-24 grid grid-cols-1 md:grid-cols-2">
           <div className="h-full flex items-center">
