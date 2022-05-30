@@ -48,9 +48,9 @@ export default function Stays() {
                 }`}
               >
                 {stay.superHost && (
-                  <div className="mr-2 text-gray-500 font-bold border-2 border-gray-500 px-2 rounded-lg">
+                  <span className="mr-2 text-gray-500 font-bold border-2 border-gray-500 px-2 rounded-lg">
                     SUPERHOST
-                  </div>
+                  </span>
                 )}
                 <div className="flex items-center text-gray-500 font-medium">
                   {stay.type} {stay.beds && `. ${stay.beds} beds`}

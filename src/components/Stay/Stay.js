@@ -30,9 +30,9 @@ export default function Stay() {
           <div className="flex items-center">
             <h2 className="py-2">{stay.title}</h2>
             {stay.superHost && (
-              <div className="ml-2 text-gray-500 font-bold border-2 border-gray-500 px-2 rounded-lg">
+              <span className="ml-2 text-gray-500 font-bold border-2 border-gray-500 px-2 rounded-lg">
                 SUPERHOST
-              </div>
+              </span>
             )}
           </div>
 
