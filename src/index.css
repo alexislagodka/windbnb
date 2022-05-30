@@ -12,9 +12,10 @@
     bg-white
   }
   body, #root {
-    margin: 0;
     font-family: 'Montserrat', sans-serif;
+    -webkit-overflow-scrolling: touch;
     @apply
+    m-0
     w-full
     text-sm
     md:text-base
