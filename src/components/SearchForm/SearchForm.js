@@ -33,8 +33,8 @@ export default function SearchForm({ close }) {
       city: cityParam,
       country: countryParam,
       nbGuests: nbGuests,
-      adults: adultsParam,
-      children: childrenParam,
+      adults: adultsParam ? adultsParam : 0 ,
+      children: childrenParam ? childrenParam : 0,
     })
   }, [cityParam, countryParam, nbGuests, adultsParam, childrenParam])
 
