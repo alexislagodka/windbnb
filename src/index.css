@@ -19,6 +19,7 @@
     w-full
     text-sm
     md:text-base
+    bg-white
   }
   #root{
     @apply
