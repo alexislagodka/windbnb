@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 

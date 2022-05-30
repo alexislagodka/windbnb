@@ -42,6 +42,7 @@ export default function Stay() {
         </div>
         <img
           src={stay.photo}
+          alt={stat.title}
           className="w-full max-h-screen object-cover rounded-xl"
         />
         <table className="table border rounded-xl my-2">

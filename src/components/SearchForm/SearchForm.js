@@ -1,18 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 import { MdLocationOn } from "react-icons/md";
 import { useNavigate, createSearchParams } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
 export default function SearchForm({ close }) {
+  // show form option "location" or "guests"
+  const [showOptions, setShowOptions] = useState(null);
+  const [dataForm, setDataForm] = useState({
+    city: "",
+    country: "",
+    nbGuests: 0,
+    adults: 0,
+    children: 0,
+  });
+
+  // Get actual query parameters
   let [searchParams] = useSearchParams();
 
   let cityParam = searchParams.get("city");
   let countryParam = searchParams.get("country");
-  let adultsParam = parseInt(searchParams.get("adults"));
-  let childrenParam = parseInt(searchParams.get("children"));
-  let nbGuestsParam = adultsParam + childrenParam;
+  let adultsParam = searchParams.get("adults");
+  let childrenParam = searchParams.get("children");
 
+  let nbGuests = 0;
+
+  if (adultsParam) nbGuests += parseInt(adultsParam);
+  if (childrenParam) nbGuests += parseInt(childrenParam);
+
+  useEffect(() => {
+    setDataForm({
+      city: cityParam,
+      country: countryParam,
+      nbGuests: nbGuests,
+      adults: adultsParam,
+      children: childrenParam,
+    })
+  }, [cityParam, countryParam, nbGuests, adultsParam, childrenParam])
+
+  
+
+  // Get locations options
   const stays = require("../../assets/datas/stays.json");
   let locations = [];
   stays.forEach((stay) => {
@@ -24,19 +52,8 @@ export default function SearchForm({ close }) {
     }
   });
 
-  // "location" or "guests"
-  const [showOptions, setShowOptions] = useState(null);
-
-  const [dataForm, setDataForm] = useState({
-    city: "",
-    country: "",
-    nbGuests: 0,
-    adults: 0,
-    children: 0,
-  });
-
+  // Initialize the query search
   const navigate = useNavigate();
-
   const search = () => {
     let params = [];
     dataForm.city && params.push(["city", dataForm.city]);
@@ -51,6 +68,7 @@ export default function SearchForm({ close }) {
     close();
   };
 
+  // Manage number of guests
   const addAdults = () => {
     setDataForm({
       ...dataForm,
@@ -92,7 +110,7 @@ export default function SearchForm({ close }) {
           <div>Edit your search</div>
           <button onClick={close}>X</button>
         </div>
-        <div className="w-full flex justify-center items-center py-3">
+        <div className="w-full flex justify-center items-center py-2">
           <div className="grid md:grid-cols-3  w-4/5 rounded-xl shadow-[0_1px_6px_rgba(0,0,0,0.1)]">
             <div
               className={`h-14 grid border-b md:border-b-0 md:border-r p-1 hover:cursor-pointer ${
@@ -134,7 +152,7 @@ export default function SearchForm({ close }) {
           <div className="w-4/5 md:grid md:grid-cols-3">
             <div>
               {showOptions === "location" && (
-                <div className="grid py-4">
+                <div className="grid py-2">
                   {locations.map((location, index) => {
                     return (
                       <button
@@ -159,7 +177,7 @@ export default function SearchForm({ close }) {
             <div>
               {showOptions === "guests" && (
                 <div className="grid text-sm ">
-                  <div className="py-4">
+                  <div className="py-2">
                     <div className="font-bold">Adults</div>
                     <div className="text-gray-400">Ages 13 or above</div>
                     <div className="py-2">

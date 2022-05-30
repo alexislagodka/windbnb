@@ -12,15 +12,15 @@ export default function NavBar() {
 
   let cityParam = searchParams.get("city");
   let countryParam = searchParams.get("country");
-  let adults = searchParams.get("adults");
-  let children = searchParams.get("children");
+  let adultsParam = searchParams.get("adults");
+  let childrenParam = searchParams.get("children");
 
   let nbGuests = 0;
   let location = "";
 
   if (cityParam && countryParam ) location = `${cityParam}, ${countryParam}`;
-  if(adults) nbGuests += parseInt(adults)
-  if(children) nbGuests += parseInt(children)
+  if(adultsParam) nbGuests += parseInt(adultsParam)
+  if(childrenParam) nbGuests += parseInt(childrenParam)
 
   useEffect(() => {
     openSearch ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset';
