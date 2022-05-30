@@ -45,7 +45,7 @@ export default function Stay() {
           alt={stay.title}
           className="w-full max-h-screen object-cover rounded-xl"
         />
-        <table className="table border rounded-xl my-2">
+        <table className="table rounded-xl my-2">
           <tbody className="table-row-group">
             <tr className="table-row odd:bg-slate-100">
               <td className="table-cell">Type</td>
