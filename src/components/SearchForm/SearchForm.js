@@ -104,7 +104,7 @@ export default function SearchForm({ close }) {
   };
 
   return (
-    <div className="h-full absolute top-0 overflow-hidden">
+    <div className=" h-screen absolute top-0 overflow-hidden">
       <div className="h-auto bg-white w-screen grid grid-rows-[30px_auto_1fr_80px] md:grid-rows-[30px_auto_1fr]">
         <div className="p-2 w-full flex justify-between font-bold md:invisible">
           <div>Edit your search</div>
