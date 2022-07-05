@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-import { AiFillStar } from "react-icons/ai";
+import StayCard from "../StayCard/StayCard";
 
 export default function Stays() {
   let stays = require("../../assets/datas/stays.json");
@@ -32,40 +31,9 @@ export default function Stays() {
         {stays.length} stays
       </div>
       <div className="w-11/12 md:w-4/5 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {stays.map((stay) => {
-          return (
-            <div className="grid gap-2" key={stay.id}>
-              <div className="photoContainer">
-                <Link to={`/stays/${stay.id}`}>
-                  <img className="photo" src={stay.photo} alt={stay.title} />
-                </Link>
-              </div>
-              <div
-                className={`grid ${
-                  stay.superHost
-                    ? "grid-cols-[auto_1fr_auto]"
-                    : "grid-cols-[1fr_auto]"
-                }`}
-              >
-                {stay.superHost && (
-                  <span className="mr-2 text-gray-500 font-bold border-2 border-gray-500 px-2 rounded-lg">
-                    SUPERHOST
-                  </span>
-                )}
-                <div className="flex items-center text-gray-500 font-medium">
-                  {stay.type} {stay.beds && `. ${stay.beds} beds`}
-                </div>
-                <div className="flex items-center">
-                  <AiFillStar className="text-salmon h-full" />
-                  {stay.rating}
-                </div>
-              </div>
-              <div className="font-bold">
-                <Link to={`/stays/${stay.id}`}>{stay.title}</Link>
-              </div>
-            </div>
-          );
-        })}
+        {
+          stays.map(stay => <StayCard stay={stay} />)
+        }
       </div>
     </main>
   );

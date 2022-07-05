@@ -75,6 +75,7 @@
     h-full
     object-cover
     rounded-xl
+    bg-gray-100
   }
 
 }
