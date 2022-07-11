@@ -32,11 +32,16 @@ export default function NavBar() {
   }, [openSearch]);
 
   const handleScroll = () => {
+    console.log(window.scrollY)
+    if(window.scrollY > 100){
     const currentYOffset = window.pageYOffset;
     const visible = yOffset > currentYOffset;
 
     setYOffset(currentYOffset);
     setVisible(visible);
+    } else {
+      setVisible(true);
+    }
   };
 
   useEffect(() => {
