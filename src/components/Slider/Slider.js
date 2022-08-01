@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -38,7 +38,7 @@ export default function App () {
             <SwiperSlide className='w-full h-full'>
               <Link to={`/stays/${stay.id}`}>
                 <div className='relative'>
-                  <img className='w-full h-full object-cover' src={stay.photo} />
+                  <img className='w-full h-full object-cover' src={stay.photo} alt={stay.title} />
                   <div className='absolute right-1 top-1'>
                     <div className='flex items-center text-white'>
                       <AiFillStar className='text-salmon h-full' />
