@@ -10,7 +10,6 @@ import 'swiper/css/pagination'
 
 // import required modules
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper'
-import { AiFillStar } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 
 export default function App () {
@@ -29,6 +28,7 @@ export default function App () {
         delay: 5000,
         disableOnInteraction: false
       }}
+      loop={true}
       modules={[Autoplay, EffectFade, Navigation, Pagination]}
       className='w-full h-full'
     >
