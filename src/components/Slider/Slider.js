@@ -38,12 +38,6 @@ export default function App () {
             <Link to='/stays'>
               <div className='relative h-full'>
                 <img className='w-full h-full object-cover' src={stay.photo} alt={stay.title} />
-                <div className='absolute right-1 top-1'>
-                  <div className='flex items-center text-white'>
-                    <AiFillStar className='text-salmon h-full' />
-                    {stay.rating}
-                  </div>
-                </div>
               </div>
             </Link>
           </SwiperSlide>
