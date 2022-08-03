@@ -17,6 +17,7 @@
     @apply
     m-0
     w-full
+    min-h-screen
     text-sm
     md:text-base
     bg-white
